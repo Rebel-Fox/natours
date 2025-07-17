@@ -1,7 +1,7 @@
 import { login, logout } from "./login";
 import { displayMap } from "./leaflet";
 import { updateSettings } from "./updateSettings";
-import { booktour } from "./bookTour";
+import { booktour } from "./booktour";
 
 const mapBox = document.getElementById('map');
 

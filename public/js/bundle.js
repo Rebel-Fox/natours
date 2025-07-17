@@ -2596,7 +2596,7 @@
     }
   };
 
-  // public/js/bookTour.js
+  // public/js/booktour.js
   var booktour = async (tour) => {
     try {
       const res = await axios_default({
