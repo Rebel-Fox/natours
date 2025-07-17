@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../frontend/main.js"],
+  "sourcesContent": ["import './style.css';\r\n\r\nconsole.log('Hello from esbuild!');\r\n"],
+  "mappings": ";;AAEA,UAAQ,IAAI,qBAAqB;",
+  "names": []
+}

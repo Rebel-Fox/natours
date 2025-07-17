@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../frontend/style.css"],
+  "sourcesContent": ["body {\r\n  background: #f9f9f9;\r\n  font-family: sans-serif;\r\n}\r\n"],
+  "mappings": ";AAAA;AACE,cAAY;AACZ,eAAa;AACf;",
+  "names": []
+}

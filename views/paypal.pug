@@ -1,0 +1,83 @@
+extends base
+
+block append head
+    link(rel="stylesheet", type="text/css", href="https://www.paypalobjects.com/webstatic/en_US/developer/docs/css/cardfields.css")
+    title PayPal JS SDK Advanced Integration - Checkout Flow
+    style.
+        .container {
+            max-width: 1200px; /* Adjust as needed */
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .checkout-grid {
+            display: flex;
+            flex-wrap: wrap; /* Allows wrapping on smaller screens */
+            gap: 2rem; /* Space between columns */
+            align-items: flex-start; /* Align items to the top */
+            justify-content: center; /* Center the grid items */
+        }
+        .checkout-left, .checkout-right {
+            flex: 1 1 48%; /* Each takes roughly half the width, allowing for gap */
+            min-width: 300px; /* Minimum width before wrapping to a single column */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+        .checkout-left img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block; /* Removes extra space below image */
+            margin-bottom: 1rem; /* Space between image and any content below it */
+        }
+        /* Basic styling for form elements for better appearance */
+        .card_container div {
+            margin-bottom: 10px;
+        }
+        .card_container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .card_container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .card_container button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .card_container button:hover {
+            background-color: #0056b3;
+        }
+
+    script(
+        src="https://www.paypal.com/sdk/js?client-id=AYOeyCQvilLVKJGjslZfFSi_Nkl7A6OfXNarj5lS55iUcQXMhpp3AypVjAVkS_qvPcO5D415b9SnBFuN&buyer-country=US&currency=USD&components=buttons,card-fields&enable-funding=venmo",
+        data-sdk-integration-source="developer-studio"
+    )
+
+block content
+    .container
+        h1 Checkout Page for #{tour.name}
+        .checkout-grid
+            .checkout-left
+                img(src=`/img/tours/${tour.imageCover}`, alt='Tour Image')
+            .checkout-right
+                //- Containers for Card Fields hosted by PayPal
+                div#paypal-button-container.paypal-button-container
+                div#card-form.card_container
+                    div#card-name-field-container
+                    div#card-number-field-container
+                    div#card-expiry-field-container
+                    div#card-cvv-field-container
+                    br
+                    br
+                    button#card-field-submit-button(type="button") Pay now with Card
+        p#result-message
+        script(src="/js/paypal.js")
