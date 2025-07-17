@@ -13,7 +13,7 @@ if(mapBox){
 }
 
 const loginForm = document.querySelector('.form-user-login');
-console.log(loginForm);
+//console.log(loginForm);
 if(loginForm){
     loginForm.addEventListener('submit',e => {
         e.preventDefault();
@@ -27,7 +27,7 @@ if(loginForm){
 if(logoutBtn){
     logoutBtn.addEventListener('click',e => {
         e.preventDefault();
-        console.log('btn clicked');
+        //console.log('btn clicked');
         logout();
     })
 }
@@ -40,7 +40,7 @@ if(userDataForm){
         form.append('name',document.getElementById('name').value);
         form.append('email',document.getElementById('email').value);
         form.append('photo',document.getElementById('photo').files[0]);
-        console.log(form);
+        //console.log(form);
         updateSettings(form,'data');
     })
 }

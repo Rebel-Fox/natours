@@ -5,7 +5,7 @@ const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
-
+const compression = require('compression');
 
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
@@ -91,11 +91,12 @@ app.use(hpp({
 }));
 //-------------------------------------------------------------------------
 
+app.use(compression());
 
 //Test middleward .use to use middleware
 app.use((req,res,next) =>{
     req.requestTime = new Date().toISOString();
-    console.log(req.cookies);
+    //console.log(req.cookies);
     next();
 })
 

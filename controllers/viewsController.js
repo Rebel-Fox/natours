@@ -26,8 +26,8 @@ exports.getTour = catchAsync ( async (req,res,next) => {
     if(!tour){
         return next(new AppError('There is no tour with that name',404))
     }
-    console.log(tour);
-    console.log(tour.reviews);
+    //console.log(tour);
+    //console.log(tour.reviews);
     res.status(200).render('tour',{
         title:`${tour.name} tour`,
         tour
@@ -47,8 +47,8 @@ exports.getAccount = (req,res) => {
 }
 
 exports.updateUserData = catchAsync(async (req,res,next) => {
-    console.log('hello');
-    console.log(req.body);
+    //console.log('hello');
+    //console.log(req.body);
     const updatedUser = await User.findByIdAndUpdate(req.user.id,{
         name : req.body.name,
         email:req.body.email,
@@ -73,8 +73,8 @@ exports.getMyTours = catchAsync (async (req,res,next) => {
 
     const tours = await Tour.find({_id : {$in : tourIds}});
 
-    console.log('hello');
-    console.log(tours);
+    //console.log('hello');
+    //console.log(tours);
 
     res.status(200).render('overview',{
         title : 'My Tours',

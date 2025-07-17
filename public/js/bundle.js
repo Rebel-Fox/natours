@@ -2522,13 +2522,12 @@
     try {
       const res = await axios_default({
         method: "POST",
-        url: "http://127.0.0.1:3000/api/v1/users/login",
+        url: "/api/v1/users/login",
         data: {
           email,
           password
         }
       });
-      console.log(res);
       if (res.data.status === "success") {
         showAlert("success", "Logged in successfull !");
         window.setTimeout(() => {
@@ -2543,13 +2542,10 @@
     try {
       const res = await axios_default({
         method: "GET",
-        url: "http://127.0.0.1:3000/api/v1/users/logout"
+        url: "/api/v1/users/logout"
       });
-      console.log("hello");
       if (res.data.status === "success") location.reload(true);
     } catch (err) {
-      console.log("hello2");
-      console.log(err);
       showAlert("error", "Error logging out ! Try again.");
     }
   };
@@ -2573,9 +2569,9 @@
   var updateSettings = async (data, type) => {
     let url;
     if (type === "password") {
-      url = `http://127.0.0.1:3000/api/v1/users/updateMyPassword`;
+      url = `/api/v1/users/updateMyPassword`;
     } else {
-      url = `http://127.0.0.1:3000/api/v1/users/updateMe`;
+      url = `/api/v1/users/updateMe`;
     }
     try {
       const res = await axios_default({
@@ -2583,7 +2579,6 @@
         url,
         data
       });
-      console.log(res);
       if (res.data.status === "success") {
         showAlert("success", `${type.toUpperCase()} Updated Successfully !`);
         window.setTimeout(() => {
@@ -2606,7 +2601,6 @@
           tour
         }
       });
-      console.log(res);
       if (res.data.status === "success") {
         showAlert("success", "Tour Booked successfully !");
         window.setTimeout(() => {
@@ -2626,7 +2620,6 @@
     displayMap(locations);
   }
   var loginForm = document.querySelector(".form-user-login");
-  console.log(loginForm);
   if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -2638,7 +2631,6 @@
   if (logoutBtn) {
     logoutBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      console.log("btn clicked");
       logout();
     });
   }
@@ -2650,7 +2642,6 @@
       form.append("name", document.getElementById("name").value);
       form.append("email", document.getElementById("email").value);
       form.append("photo", document.getElementById("photo").files[0]);
-      console.log(form);
       updateSettings(form, "data");
     });
   }

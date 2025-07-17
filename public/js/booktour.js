@@ -10,7 +10,7 @@ export const booktour = async tour => {
                 tour,
             }
         })
-        console.log(res);
+        //console.log(res);
         if(res.data.status === 'success'){
             showAlert('success','Tour Booked successfully !');
             window.setTimeout(() => {

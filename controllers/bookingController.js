@@ -19,7 +19,7 @@ exports.bookTour = catchAsync(async (req,res,next) => {
         price : tour.price,
     })
 
-    console.log(booking);
+    //console.log(booking);
     res.status(200).json({
         status : 'success',
         booking,

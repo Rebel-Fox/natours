@@ -26,7 +26,7 @@ exports.updateTourImages = upload.fields([
 ])
 
 exports.resizeTourImage = catchAsync (async(req,res,next) => {
-    console.log(req.files);
+    //console.log(req.files);
     if(!req.files.imageCover || !req.files.images) return next(); 
 
     //1) Cover Image
@@ -52,7 +52,7 @@ exports.resizeTourImage = catchAsync (async(req,res,next) => {
             
             req.body.images.push(filename);
     }))
-    console.log(req.body);
+    //console.log(req.body);
     next();
 })
 
@@ -151,7 +151,7 @@ exports.getMonthlyPlan = catchAsync(async (req,res,next) => {
 
 // /tour-within/:distance/center/:latlng/unit/:unit
 exports.getToursWithin = catchAsync(async (req,res,next) => {
-    console.log(req.params);
+    //console.log(req.params);
     const {distance,latlng,unit} = req.params;
     const [lat,lng] = latlng.split(',');
 

@@ -5,9 +5,9 @@ import { showAlert } from "./alerts";
 export const updateSettings = async (data,type) => {
     let url;
     if(type === 'password'){
-        url = `http://127.0.0.1:3000/api/v1/users/updateMyPassword`
+        url = `/api/v1/users/updateMyPassword`
     }else{
-        url = `http://127.0.0.1:3000/api/v1/users/updateMe`
+        url = `/api/v1/users/updateMe`
     }
     try{
         const res = await axios({
@@ -16,7 +16,7 @@ export const updateSettings = async (data,type) => {
             data
         })
 
-        console.log(res);
+        //console.log(res);
         if(res.data.status === 'success'){
             showAlert('success',`${type.toUpperCase()} Updated Successfully !`);
             window.setTimeout(() => {

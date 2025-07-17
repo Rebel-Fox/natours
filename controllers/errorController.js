@@ -24,7 +24,7 @@ const handleJsonWebTokenError = err => new AppError('Invalid token . Please log 
 const handleTokenExpiredError = err => new AppError('Token expired . Please login again',401);
 
 const sendErrorDev = (err,req,res) => {
-    console.log(err);
+    //console.log(err);
     // A) API
     if(req.originalUrl.startsWith('/api')){
         return res.status(err.statusCode).json({
@@ -92,10 +92,10 @@ const sendErrorProd = (err,req,res) => {
 
 module.exports =  (err,req,res,next) => {
     //console.log(err.stack);
-    console.log(process.env.NODE_ENV);
+    //console.log(process.env.NODE_ENV);
     err.statusCode = err.statusCode || 500;
     err.status = err.status || 'error';
-    console.log(err.name);
+    //console.log(err.name);
     if(process.env.NODE_ENV === 'development'){
         sendErrorDev(err,req,res);
     }else if(process.env.NODE_ENV === 'production'){
