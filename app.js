@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname,'public')));
 //CORS
 app.use(cors());
 
-app.options('*',cors());
+app.options(/.*/,cors());
 
 const scriptSrcUrls = ['https://unpkg.com/',
     'https://tile.openstreetmap.org'];

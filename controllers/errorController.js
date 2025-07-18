@@ -24,7 +24,7 @@ const handleJsonWebTokenError = err => new AppError('Invalid token . Please log 
 const handleTokenExpiredError = err => new AppError('Token expired . Please login again',401);
 
 const sendErrorDev = (err,req,res) => {
-    //console.log(err);
+    console.log(err);
     // A) API
     if(req.originalUrl.startsWith('/api')){
         return res.status(err.statusCode).json({
