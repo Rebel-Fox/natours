@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
@@ -26,6 +27,10 @@ app.use(express.static(path.join(__dirname,'public')));
 
 //global middleware
 //set SECURITY HTTP HEADERS
+//CORS
+app.use(cors());
+
+app.options('*',cors());
 
 const scriptSrcUrls = ['https://unpkg.com/',
     'https://tile.openstreetmap.org'];

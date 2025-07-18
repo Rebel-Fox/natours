@@ -4,7 +4,7 @@
   "description": "Learning node,express and mongoDB",
   "main": "app.js",
   "scripts": {
-    "start":"node server.js",
+    "start": "node server.js",
     "start:dev": "cross-env NODE_ENV=development nodemon server.js",
     "start:prod": "cross-env NODE_ENV=production nodemon server.js",
     "debug": "node --inspect-brk server.js",
@@ -19,6 +19,7 @@
     "bcryptjs": "^3.0.2",
     "compression": "^1.8.1",
     "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
     "dotenv": "^17.0.1",
     "express": "^5.1.0",
     "express-rate-limit": "^7.5.1",
