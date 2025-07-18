@@ -2596,7 +2596,7 @@
     try {
       const res = await axios_default({
         method: "POST",
-        url: "http://127.0.0.1:3000/api/v1/bookings/book-tour",
+        url: "/api/v1/bookings/book-tour",
         data: {
           tour
         }
