@@ -2518,6 +2518,29 @@
   };
 
   // public/js/login.js
+  var signup = async (name, email, password, passwordConfirm) => {
+    try {
+      const res = await axios_default({
+        method: "POST",
+        url: "/api/v1/users/signup",
+        data: {
+          name,
+          email,
+          password,
+          passwordConfirm
+        }
+      });
+      if (res.data.status === "success") {
+        showAlert("success", "Signup successfull !");
+        window.setTimeout(() => {
+          location.assign("/");
+        }, 5e3);
+      }
+    } catch (err) {
+      console.log(err.response.data.message);
+      showAlert("error", err.response.data.message);
+    }
+  };
   var login = async (email, password) => {
     try {
       const res = await axios_default({
@@ -2618,6 +2641,17 @@
   if (mapBox) {
     const locations = JSON.parse(mapBox.dataset.locations);
     displayMap(locations);
+  }
+  var signupForm = document.querySelector(".form-user-signup");
+  if (signupForm) {
+    signupForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const passwordConfirm = document.getElementById("passwordConfirm").value;
+      signup(name, email, password, passwordConfirm);
+    });
   }
   var loginForm = document.querySelector(".form-user-login");
   if (loginForm) {
